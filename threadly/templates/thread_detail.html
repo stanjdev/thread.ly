@@ -20,7 +20,7 @@
     <h3>{{ thread.comments|length }} Comments</h3>
     {% for comment in thread.comments|reverse %}
     <div class="comment-details">
-        <p>{{ comment.content }}</p>
+        <p><strong>{{ comment.content }}</strong></p>
         <small>Written by: <strong>{{ comment.created_by.username }}</strong></small>
         <br>
         <small>{{ comment.last_time.strftime("%m/%d/%Y, %I:%M %p") }}</small>
