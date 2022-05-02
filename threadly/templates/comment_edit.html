@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Edit Comment</h2>
+<form action="/thread/{{ thread.id }}/comments/{{ comment.id }}/edit" method="POST">
+    <fieldset>
+        <legend>Edit Comment:</legend>
+        {{ comment_form.content.label }}
+        {{ comment_form.content(class="topic-input") }}
+        <input type="submit" value="Submit">
+    </fieldset>
+</form>
+
+{% endblock %}

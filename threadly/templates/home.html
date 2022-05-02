@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Thread.ly</h1>
+<p><em>The best place to chat about any #thread topic</em></p>
+<img width="100%" src="https://www.thesprucecrafts.com/thmb/rlUNkKQbd4zYNdj6UyL0qXOVf_k=/2123x1412/filters:fill(auto,1)/thread-58169a705f9b581c0b669d89.jpg"/>
+
+
+<h2>All Threads</h2>
+
+{% for thread in all_threads|reverse %}
+<a href="/thread/{{ thread.id }}">
+    <div class="thread">
+        <img class="thread-thumbnail" src="{{ thread.image_url }}" height="75px">
+        <div class="thread_card_text">
+            <p>{{ thread.topic }}</p>
+            <p><small><strong>Description:</strong> {{ thread.description }}</small></p>
+            <p>{{ thread.comments|length }} comments</p>
+        </div>
+    </div>
+</a>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>{{ current_user.username }}'s threads</h1>
+
+<div class="threads">
+    {% for thread in threads %}
+    <a href="/thread/{{ thread.id }}">
+        <div class="thread-details">
+            <div>
+                <img class="thread-thumbnail" src="{{ thread.image_url }}" alt="{{ thread.name }}" width="200px">
+            </div>
+            <div class="thread-details-text">
+                <p><strong>{{ thread.topic }}</strong></p>
+                <p><small>{{ thread.description }}</small></p>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Thread - {{ thread.topic }}</h1>
+<p><img src="{{ thread.image_url }}" height="250px"></p>
+<p><strong>Description:</strong> {{ thread.description }}</p>
+<p><strong>Created by: {{ thread_author.username }}</strong></p>
+
+<h2>Comments</h2>
+<form action="/thread/{{ thread.id }}/comments" method="POST">
+    <fieldset>
+        <legend>Add a Comment:</legend>
+        {{ comment_form.content.label }}
+        {{ comment_form.content(class="topic-input") }}
+        <input type="submit" value="Submit">
+    </fieldset>
+</form>
+
+<div class="comments">
+    <h3>{{ thread.comments|length }} Comments</h3>
+    {% for comment in thread.comments|reverse %}
+    <div class="comment-details">
+        <p>{{ comment.content }}</p>
+        <small>Written by: <strong>{{ comment.created_by.username }}</strong></small>
+        <br>
+        <small>{{ comment.last_time.strftime("%m/%d/%Y, %I:%M %p") }}</small>
+        <br>
+        <br>
+        {% if current_user == comment.created_by %}
+            <a href="/thread/{{ thread.id }}/comments/{{ comment.id }}/edit">Edit</a> |
+            <a href="/thread/{{ thread.id }}/comments/{{ comment.id }}/delete">Delete</a>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+
+<h2>Edit Thread</h2>
+<form action="/thread/{{ thread.id }}" method="POST">
+    <fieldset>
+        <h2>Thread Topic: {{ thread.topic }}</h2>
+        <legend>Please enter information to edit:</legend>
+        {{ form.description.label }}
+        {{ form.description(class="description-input") }}
+        {{ form.image_url.label }}
+        {{ form.image_url(class="image_url-input") }}
+        <input type="submit" value="Submit">
+    </fieldset>
+</form>
+
+{% endblock %}

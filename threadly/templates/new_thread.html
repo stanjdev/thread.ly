@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>New Thread</h1>
+
+<form action="/new_thread" method="POST">
+    <fieldset>
+        <legend>Please enter your information:</legend>
+        {{ form.topic.label }}
+        {{ form.topic(class="topic-input") }}
+        {{ form.description.label }}
+        {{ form.description(class="description-input") }}
+        {{ form.image_url.label }}
+        {{ form.image_url(class="image_url-input") }}
+        <input type="submit" value="Submit">
+    </fieldset>
+</form>
+
+
+{% endblock %}
