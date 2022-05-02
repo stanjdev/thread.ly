@@ -10,6 +10,14 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+.hero_image {
+    height: 350px;
+    background-image: url("https://www.thesprucecrafts.com/thmb/rlUNkKQbd4zYNdj6UyL0qXOVf_k=/2123x1412/filters:fill(auto,1)/thread-58169a705f9b581c0b669d89.jpg");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+}
+
 #content {
     width: 70%;
     background-color: rgb(36, 36, 36);
@@ -28,8 +36,15 @@ nav a {
     text-decoration: none;
     border: 1px solid whitesmoke;
     border-radius: 8px;
-    padding: 1px 5px;
+    padding: 3px 7px;
     font-size: 1.2em;
+    margin-right: 3px;
+    transition: all ease 0.3s;
+}
+
+nav a:hover {
+    color: black;
+    background-color: whitesmoke;
 }
 
 a {
@@ -107,6 +122,22 @@ fieldset {
 }
 
 fieldset .topic-input {
+    border: 1px solid whitesmoke;
+}
+
+fieldset .comment-input {
     color: whitesmoke;
     border: 1px solid whitesmoke;
+}
+
+.flash_message {
+    color: goldenrod;
+}
+
+.edit_button {
+    color: gold;
+}
+
+.delete_button {
+    color: red;
 }

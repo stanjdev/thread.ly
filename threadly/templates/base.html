@@ -9,7 +9,7 @@
     <body>
         <div id="content">
             {% for message in get_flashed_messages() %}
-                <p>{{ message }}</p>
+                <p class="flash_message">{{ message }}</p>
             {% endfor %}
             <nav>
                 <a href="/">Home</a>

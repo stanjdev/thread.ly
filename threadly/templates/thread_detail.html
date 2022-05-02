@@ -11,7 +11,7 @@
     <fieldset>
         <legend>Add a Comment:</legend>
         {{ comment_form.content.label }}
-        {{ comment_form.content(class="topic-input") }}
+        {{ comment_form.content(class="comment-input") }}
         <input type="submit" value="Submit">
     </fieldset>
 </form>
@@ -27,8 +27,8 @@
         <br>
         <br>
         {% if current_user == comment.created_by %}
-            <a href="/thread/{{ thread.id }}/comments/{{ comment.id }}/edit">Edit</a> |
-            <a href="/thread/{{ thread.id }}/comments/{{ comment.id }}/delete">Delete</a>
+            <a class="edit_button" href="/thread/{{ thread.id }}/comments/{{ comment.id }}/edit">Edit</a> |
+            <a class="delete_button" href="/thread/{{ thread.id }}/comments/{{ comment.id }}/delete">Delete</a>
         {% endif %}
     </div>
     {% endfor %}
