@@ -81,6 +81,9 @@ div.thread {
 
 img.thread-thumbnail {
     border-radius: 8px;
+    object-fit: cover;
+    height: 110px;
+    width: 145px;
 }
 
 div.thread_card_text {
@@ -108,6 +111,10 @@ div.thread-details {
 
 div.thread-details .thread-details-text {
     margin-left: 10px;
+}
+
+.thread_detail_img, .hero_image {
+    border-radius: 8px;
 }
 
 div.comment-details {
